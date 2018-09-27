@@ -27,8 +27,7 @@ jobs:
       - restore_cache:
           keys:
           - v1-dependencies-{{ checksum "pom.xml" }}
-          # fallback to using the latest cache if no exact match is 
-found
+          # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
       - run: mvn dependency:go-offline
@@ -40,4 +39,3 @@ found
         
       # run tests!
       - run: mvn integration-test
-
